@@ -1,0 +1,196 @@
+/*
+* Comment
+*/
+// Comment
+* Comment
+BIT0 = 0
+BIT1 = 1
+BIT2 = 2
+BIT3 = 3
+BIT4 = 4
+BIT5 = 5
+BIT6 = 6
+BIT7 = 7
+
+R0 = 0
+R1 = 1
+R2 = 2
+R3 = 3
+R4 = 4
+R5 = 5
+R6 = 6
+R7 = 7
+R8 = 10
+R9 = 11
+R10 = 12
+R11 = 13
+R12 = 14
+R13 = 15
+R14 = 16
+R15 = 17
+
+DS0 = 0
+DS1 = 1
+DS2 = 2
+DS3 = 3
+DS4 = 4
+DS5 = 5
+DS6 = 6
+DS7 = 7
+DS8 = 10
+DS9 = 11
+DS10 = 12
+DS11 = 13
+DS12 = 14
+DS13 = 15
+DS14 = 16
+DS15 = 17
+
+DC0 = 0
+DC1 = 1
+DC2 = 2
+DC3 = 3
+DC4 = 4
+DC5 = 5
+DC6 = 6
+
+PAGE0=0x000
+PAGE1=0x1
+PAGE2=0x2
+PAGE3=0x3
+
+ALL1S OCT 0377
+FORTYTWO BCD 42
+HUNDRED	DEC	100
+
+	SBS BIT7 /* */
+	RTS
+	RSE
+	SBZ BIT6
+	RTI
+	RTE
+	INB
+	IND
+	DEB
+	DED
+	CLA
+	CMA
+	LSA
+	RSA
+	SES
+	SEZ
+
+	LDR	ALL1S
+	LDR	FORTYTWO
+	LDR	HUNDRED
+	
+	LDA	R5
+	STA	R6
+
+	LDI	R7
+	STI	R8
+
+	STR	R9,0x12
+	STR R10,forward
+
+	STE
+	CLE
+
+	DSI
+	ENI
+
+	SLT
+	NOP
+	NOP
+
+	SEQ
+	NOP
+	NOP
+
+	SAZ
+	NOP
+	NOP
+
+	SLE
+	NOP
+	NOP
+
+	SGE
+	NOP
+	NOP
+
+	SNE
+	NOP
+	NOP
+
+	SAN
+	NOP
+	NOP
+
+	SGT
+	NOP
+	NOP
+
+	INA	DS11
+	OTA	DS12
+	OTR	DS13,0x13
+
+	STC	DC1
+	CLC DC2
+	SFS	DC3
+	NOP
+	NOP
+	SFZ	DC4
+	NOP
+	NOP
+
+	RTI
+	RTE
+	NOP
+	JAI	PAGE1
+	JAS	PAGE2
+
+	JAI 2
+
+	JMP label2
+	JSB	LABEL1
+
+	RTS
+	RSE
+
+	SBZ BIT3 asdf
+label1 IND
+label2
+	DED
+	INB
+	JMP label1
+	JMP	undefined
+	JMP	undefined2
+	JMP	undefined2
+	JMP	undefined2
+	JMP	undefined2
+	JMP	undefined2
+forward = 0x55
+error1=
+error2 OCT
+	NOP
+error3 DEC
+	NOP
+error4 BCD
+	ORG 0x100
+	DED
+*
+Error5 // test error
+	NOP
+Error6 * test error
+* Comment
+	INB	* Comment
+*
+BadOct OCT 88
+*
+	STA 89
+*
+	JMP
+	END
+	NOP
+
